@@ -7,7 +7,7 @@ class FormPracticeTest extends TestCase {
      */
     public function tweet_form_should_have_1_input()
     {
-        $this->visit('practice/forms/tweet.php');
+        $this->visit(HTTP_ROOT . '/practice/forms/tweet.php');
 
         $webAssert = $this->getAssertSession();
         $webAssert->statusCodeEquals(200);
@@ -22,7 +22,7 @@ class FormPracticeTest extends TestCase {
 
         $webAssert = $this->getAssertSession();
 
-        $this->visit('practice/forms/tweet.php');
+        $this->visit(HTTP_ROOT . '/practice/forms/tweet.php');
 
         $this->fillField('tweet', 'This is a really long tweet.');
         $this->pressButton('Submit');
@@ -37,7 +37,7 @@ class FormPracticeTest extends TestCase {
         $this->pressButton('Submit');
 
         $webAssert->pageTextNotContains('ERROR!');
-        $this->assertAddressEquals('/practice/forms/tweet.php');
+        $this->assertAddressEquals(HTTP_ROOT . '/practice/forms/tweet.php');
     }
 
 
